@@ -1,0 +1,110 @@
+/* addtrain.component.css */
+.add-train-form {
+    max-width: auto;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color:#7ec1f0;
+    /* background-color:  #7ec1f0; */
+  }
+
+  .train-info{
+    display: flex;
+  }
+  
+  h2 {
+    text-align: center;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .input-group {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .input-group input {
+    flex: 1;
+  }
+  
+  .train-route,
+  .train-schedule,
+  .additional-schedule {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .train-route h4,
+  .train-schedule h4,
+  .additional-schedule h4 {
+    margin-top: 0;
+    margin-bottom: 10px;
+  }
+  
+  .btn-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .train-schedule button,
+.additional-schedule button {
+  margin-top: 5px;
+}
+  
+/* AddTrainComponent CSS */
+.add-train-form {
+  max-width: 1300px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color:#7ec1f0;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+h2 {
+  text-align: center;
+}
+
+.train-route th,
+.train-route td {
+  vertical-align: middle;
+}
+
+.train-route button {
+  margin-top: 5px;
+}
+
+/* Adjust the styles according to your preference */
+.table {
+  background-color: white; /* Change the background color of the table */
+}
+
+.table th {
+  white-space: nowrap; /* Prevent text wrapping in table header cells */
+}
+
+.table thead th {
+  background-color: #343a40; /* Change the background color of table header cells */
+  color: white; /* Set text color for table header cells */
+}
+
+/* Optional hover effect for table rows */
+.table-hover tbody tr:hover {
+  background-color: #f8f9fa; /* Change the background color on hover */
+}
+
+/* .form-control{
+  width: 80px;
+} */
+.validation-message {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}

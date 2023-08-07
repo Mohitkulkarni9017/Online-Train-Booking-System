@@ -1,0 +1,141 @@
+
+
+  
+  <form (submit)="onSubmit()" class="add-train-form">
+    <h2>Add Train</h2>
+    <div class="d-flex justify-content-between">
+      <div class="form-group">
+        <label for="trainNo">Train Number:</label>
+        <input type="text" [(ngModel)]="trainDetails.trainNo" name="trainNo" class="form-control" required>
+        <div *ngIf="formSubmitted && !trainDetails.trainNo" class="validation-message">Train Number is required</div>
+      </div> 
+      
+      <div class="form-group">
+        <label for="trainName">Train Name:</label>
+        <input type="text" [(ngModel)]="trainDetails.trainName" name="trainName" class="form-control" required>
+        <div *ngIf="formSubmitted && !trainDetails.trainName" class="validation-message">Train Name is required</div>
+      </div>
+      
+      <div class="form-group">
+        <label for="avsl">Available Seats (SL):</label>
+        <input type="number" [(ngModel)]="trainDetails.avsl" name="avsl" class="form-control" required>
+        <div *ngIf="formSubmitted && !trainDetails.avsl" class="validation-message">Available Seats (Sleeper) is required</div>
+      </div>
+      
+      <div class="form-group">
+        <label for="av2a">Available Seats (2A):</label>
+        <input type="number" [(ngModel)]="trainDetails.av2a" name="av2a" class="form-control" required>
+        <div *ngIf="formSubmitted && !trainDetails.av2a" class="validation-message">Available Seats (2 Tier AC) is required</div>
+      </div>
+      
+      <div class="form-group">
+        <label for="av3a">Available Seats (3A):</label>
+        <input type="number" [(ngModel)]="trainDetails.av3a" name="av3a" class="form-control" required>
+        <div *ngIf="formSubmitted && !trainDetails.av3a" class="validation-message">Available Seats (3 Tier AC) is required</div>
+      </div>
+    </div>
+
+    <br>
+    
+  
+    
+    <div>
+      <h3>Train Routes</h3>
+      <div class="table-responsive">
+        <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th>Route</th>
+              <th>Source</th>
+              <th>Destination</th>
+              <!-- <th>Division Source</th>
+              <th>Division Destination</th> -->
+              <th>Starting Arrival Time</th>
+              <th>Ending Arrival Time</th>
+              <th>Sleeper Fare</th>
+              <th>2 Tier AC Fare</th>
+              <th>3 Tier AC Fare</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let route of trainDetails.trainRoutes; let j = index" class="train-route">
+              <td>{{ j + 1 }}</td>
+              <td>
+                <select [(ngModel)]="route.source" name="source:{{ j }}" class="form-control" required>
+                  <option value="">Select</option>
+                  <option *ngFor="let option of station" [value]="option">{{ option }}</option>
+                </select>
+                <div *ngIf="formSubmitted && !route.source" class="validation-message">Source is required</div>
+              </td>
+              <td>
+                <select [(ngModel)]="route.destination" name="destination:{{ j }}" class="form-control" required>
+                  <option value="">Select</option>
+                  <option *ngFor="let option of station" [value]="option">{{ option }}</option>
+                </select>
+                <div *ngIf="formSubmitted && !route.destination" class="validation-message">Destination is required</div>
+              </td>
+              <!-- <td>
+                <select [(ngModel)]="route.divSource" name="divSource{{ j }}" class="form-control" required>
+                  <option value="">Select</option>
+                  <option *ngFor="let option of division" [value]="option">{{ option }}</option>
+                </select>
+                <div *ngIf="formSubmitted && !route.divSource" class="validation-message">Division of Source is required</div>
+              </td>
+              <td>
+                <select [(ngModel)]="route.divDest" name="divDest{{ j }}" class="form-control" required>
+                  <option value="">Select</option>
+                  <option *ngFor="let option of division" [value]="option">{{ option }}</option>
+                </select>
+                <div *ngIf="formSubmitted && !route.divDest" class="validation-message">Division of Destination is required</div>
+              </td> -->
+              <td>
+                <input type="text" [(ngModel)]="route.startArrivalTime" name="startArrivalTime:{{ j }}" class="form-control" required>
+                <div *ngIf="formSubmitted && !route.startArrivalTime" class="validation-message">Starting Arrival Time is required</div>
+              </td>
+              <td>
+                <input type="text" [(ngModel)]="route.endArrivalTime" name="endArrivalTime:{{ j }}" class="form-control" required>
+                <div *ngIf="formSubmitted && !route.endArrivalTime" class="validation-message">End Arrival Time is required</div>
+              </td>
+              <td>
+                <input type="text" [(ngModel)]="route.slFare" name="slFare:{{ j }}" class="form-control" required>
+                <div *ngIf="formSubmitted && !route.slFare" class="validation-message">Sleeper Fare is required</div>
+              </td>
+              <td>
+                <input type="text" [(ngModel)]="route.twoACFare" name="twoACFare:{{ j }}" class="form-control" required>
+                <div *ngIf="formSubmitted && !route.twoACFare" class="validation-message">2 Tier AC Fare is required</div>
+              </td>
+              <td>
+                <input type="text" [(ngModel)]="route.threeACFare" name="threeACFare:{{ j }}" class="form-control" required>
+                <div *ngIf="formSubmitted && !route.threeACFare" class="validation-message">3 Tier AC Fare is required</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    
+  
+    <div>
+      <div class="box">
+        <h3>Train Schedule</h3>
+      </div>
+      
+      <div *ngFor="let schedule of additionalSchedule; let i = index" class="additional-schedule">
+        <h4>Schedule {{ i + 1 }}</h4>
+        <label>
+          Departure Date:
+          <input type="date" [(ngModel)]="additionalSchedule[i].departureDate" name="departureDate{{ trainDetails.trainSchedule.length + i }}" class="form-control" required>
+        </label>
+        <div *ngIf="formSubmitted && !additionalSchedule[i].departureDate" class="validation-message">Departure Date is required</div>
+        <button class="btn btn-danger" (click)="removeAdditionalSchedule(i)">Remove</button>
+        <hr>
+      </div>
+    </div>
+  
+    <div class="btn-container">
+      <button type="button" (click)="addSchedule()" class="btn btn-primary">Add Schedule</button>
+      <button type="submit" class="btn btn-success">Add Train</button>
+    </div>
+  </form>
+  
+   

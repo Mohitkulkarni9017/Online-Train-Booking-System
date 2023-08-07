@@ -1,0 +1,10 @@
+9191,9192 = railway searching (searching-service)
+9193 = admin service (operation-service)
+8761 = eureka server
+9090 = api-gateway
+9194 = security service
+9195 = booking service
+9196 = Payment service
+9194 = security service
+
+

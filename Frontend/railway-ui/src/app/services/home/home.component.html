@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="search-box">
+    <h2>Train Search</h2>
+    <form class="search-form" (ngSubmit)="searchTrains()">
+      <div class="form-group">
+        <label for="source">Source:</label>
+        <select id="source" name="source" [(ngModel)]="source" required>
+          <option value="">Select source</option>
+          <option *ngFor="let option of sourceOptions" [value]="option">{{ option }}</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="destination">Destination:</label>
+        <select id="destination" name="destination" [(ngModel)]="destination" required>
+          <option value="">Select destination</option>
+          <option *ngFor="let option of destinationOptions" [value]="option">{{ option }}</option>
+        </select>
+      </div>
+      
+      <div class="form-group">
+        <label for="date">Date:</label>
+        <input id="date" name="date" type="date" (change)="onDateChange($event)" [min]="getCurrentDate()" required>
+      </div>
+
+      <button class="search-button" type="submit">Search</button>
+
+      <br>
+      <div *ngIf="show" class="error-message">
+        {{ errormsg }}
+      </div>
+    </form>
+  </div>
+
+  <div *ngIf="trains.length > 0">
+    <h2>Trains Found: {{ trains.length }}</h2>
+    <ul class="list-group">
+      <li *ngFor="let train of trains" class="list-group-item">
+        <h3 class="mb-0"><strong>{{ train.name }}</strong> ({{ train.number }})</h3>
+        <p class="mb-1"><strong>Source:</strong> {{ train.source }}</p>
+        <p class="mb-1"><strong>Destination:</strong> {{ train.destination }}</p>
+        <p class="mb-1"><strong>Start Arrival Time:</strong> {{ train.startArrivalTime }}</p>
+        <p class="mb-1"><strong>End Arrival Time:</strong> {{ train.endArrivalTime }}</p>
+        <div class="row mb-2">
+          <div class="col-md-4">
+            <button class="btn btn-secondary mr-2" (click)="showFare(train, 'avsl')">Sleeper ({{ train.avsl }})</button>
+            <button class="btn btn-secondary mr-2" (click)="showFare(train, 'av2a')">2 Tier AC ({{ train.av2a }})</button>
+            <button class="btn btn-secondary" (click)="showFare(train, 'av3a')">3 Tier AC ({{ train.av3a }})</button>
+          </div>
+          <div class="col-md-8">
+            <ng-container *ngIf="train.showProceedButton">
+              <button class="btn btn-success" (click)="proceed(train)">
+                Proceed (Fare: Rs{{ train.fare }})
+              </button>
+            </ng-container>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

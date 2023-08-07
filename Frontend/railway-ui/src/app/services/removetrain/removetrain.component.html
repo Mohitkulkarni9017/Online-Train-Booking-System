@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="form-wrapper">
+    <h1>Remove Train</h1>
+    <form (ngSubmit)="proceed()" class="form" #removeTrainForm="ngForm">
+      <div class="form-group">
+        <label for="trainNumber">Train Number</label>
+        <input
+          type="text"
+          class="form-control"
+          id="trainNumber"
+          name="trainNumber"
+          placeholder="Enter train number"
+          [(ngModel)]="trainNumber"
+          required
+          #trainNumberInput="ngModel"
+        />
+        <div *ngIf="trainNumberInput.invalid && trainNumberInput.touched" class="text-danger">
+          Train Number is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="date">Select Date</label>
+        <input
+          type="date"
+          class="form-control"
+          id="date"
+          name="date"
+          [(ngModel)]="departureDate"
+          required
+          #departureDateInput="ngModel"
+        />
+        <div *ngIf="departureDateInput.invalid && departureDateInput.touched" class="text-danger">
+          Date is required.
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary" [disabled]="removeTrainForm.invalid">Remove Train</button>
+    </form>
+  </div>
+</div>

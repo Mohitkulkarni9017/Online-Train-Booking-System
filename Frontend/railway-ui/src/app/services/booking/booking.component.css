@@ -1,0 +1,63 @@
+.container {
+    background-color: #f1f1f1;
+    padding: 20px;
+    border-radius: 5px;
+  }
+  
+  .passenger-details {
+    margin-top: 20px;
+  }
+  
+  .passenger-box {
+    background-color: #fff;
+    padding: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .passenger-box h4 {
+    margin-top: 0;
+  }
+  
+  .passenger-box .form-group {
+    display: inline-block;
+    margin-right: 10px;
+  }
+  
+  .passenger-box button {
+    margin-top: 10px;
+  }
+  
+  .passenger-box .form-group label {
+    display: block;
+  }
+  
+  .passenger-box .form-group select {
+    width: 150px;
+  }
+  
+  .contact-details {
+    margin-top: 20px;
+  }
+  
+  .contact-details .form-group {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .contact-details .form-group label {
+    width: 120px;
+    margin-right: 10px;
+  }
+  
+  .contact-details .form-group input {
+    width: 200px;
+    padding: 6px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .book-btn {
+    margin-top: 20px;
+  }
+  

@@ -1,0 +1,21 @@
+<div *ngIf="show" class="page1">
+    <div class="booking-done-box">
+      <h2>Booking Done</h2>
+    </div>
+    <div class="passenger-list">
+      <div *ngFor="let passenger of response" class="passenger-box">
+        <div class="passenger-details">
+          <h4>{{ passenger.name }}</h4>
+          <p>Train No: {{ passenger.trainNo }}</p>
+          <p>Train Name: {{ passenger.trainName }}</p>
+          <p>Type: {{ passenger.type }}</p>
+          <p>Seat No: {{ passenger.seatNo }}</p>
+          <p>Coach: {{ passenger.coach }}</p>
+          <p>Status: {{ passenger.status }}</p>
+          <p>Departure Date: {{ passenger.departureDate }}</p>
+          <p>Age: {{ passenger.age }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,180 @@
+ADD TRAIN DATA
+1 UDYAN EXPRESS:
+
+{
+  "trainNo": "11302",
+  "trainName": "Udyan Express",
+  "avsl":"600",
+  "av2a":"600",
+  "av3a":"600",
+  "trainRoutes": [
+    {
+      "divSource": "Solapur",
+      "divDest": "Mumbai",
+      "source": "Solapur",
+      "destination": "CSMT",
+      "startArrivalTime": "10:55 AM",
+      "endArrivalTime": "8:15 PM",
+      "date": "2023-01-07",
+	"slFare": "275",
+	"twoACFare": "1050",
+	"threeACFare": "745"
+    },
+    {
+      "divSource": "Solapur",
+      "divDest": "Pune",
+      "source": "Solapur",
+      "destination": "Pune",
+      "startArrivalTime": "10:55 AM",
+      "endArrivalTime": "4:00 PM",
+      "date": "2023-01-07",
+	  "slFare": "190",
+	  "twoACFare": "710",
+	  "threeACFare": "505"
+    },
+    {
+      "divSource": "Pune",
+      "divDest": "Mumbai",
+      "source": "Pune",
+      "destination": "CSMT",
+      "startArrivalTime": "4:00 PM",
+      "endArrivalTime": "8:15 PM",
+      "date": "2023-01-07",
+	  "slFare": "145",
+	  "twoACFare": "710",
+	  "threeACFare": "505"
+    }
+  ],
+  "trainSchedule": [
+    {
+      "departureDate": "2023-08-01"
+    },
+    {
+      "departureDate": "2023-08-02"
+    },
+    {
+      "departureDate": "2023-08-03"
+    }
+  ]
+}
+
+
+
+2 HUTATMA EXPRESS:
+{
+  "trainNo": "12158",
+  "trainName": "Hutatma Express",
+  "avsl":"600",
+  "av2a":"600",
+  "av3a":"600",
+  "trainRoutes": [
+    {
+      "divSource": "Solapur",
+      "divDest": "Pune",
+      "source": "Solapur",
+      "destination": "Pune",
+      "startArrivalTime": "6:30 AM",
+      "endArrivalTime": "10:30 AM",
+      "date": "2023-01-07",
+	  "slFare": "190",
+	  "twoACFare": "710",
+	  "threeACFare": "505"
+    },
+    {
+      "divSource": "Solapur",
+      "divDest": "Pune",
+      "source": "Solapur",
+      "destination": "Daund",
+      "startArrivalTime": "06:30 AM",
+      "endArrivalTime": "09:08 AM",
+      "date": "2023-01-07",
+	  "slFare": "100",
+	  "twoACFare": "500",
+	  "threeACFare": "305"
+    },
+    {
+      "divSource": "Pune",
+      "divDest": "Pune",
+      "source": "Daund",
+      "destination": "Pune",
+      "startArrivalTime": "09:08 AM",
+      "endArrivalTime": "10:30 AM",
+      "date": "2023-01-07",
+	  "slFare": "110",
+	  "twoACFare": "505",
+	  "threeACFare": "305"
+    }
+  ],
+  "trainSchedule": [
+    {
+
+      "departureDate": "2023-08-01"
+    },
+    {
+      "departureDate": "2023-08-02"
+    },
+    {
+      "departureDate": "2023-08-03"
+    }
+  ]
+}
+
+
+3 SIDHESHWAR EXPRESS
+
+{
+  "trainNo": "12116",
+  "trainName": "Siddheshwar Express",
+  "avsl":"600",
+  "av2a":"600",
+  "av3a":"600",
+  "trainRoutes": [
+    {
+      "divSource": "Solapur",
+      "divDest": "Mumbai",
+      "source": "Solapur",
+      "destination": "Thane",
+      "startArrivalTime": "10:30 PM",
+      "endArrivalTime": "5:40 AM",
+      "date": "2023-01-07",
+	  "slFare": "295",
+	  "twoACFare": "1050",
+	  "threeACFare": "750"
+    },
+    {
+      "divSource": "Solapur",
+      "divDest": "Pune",
+      "source": "Solapur",
+      "destination": "Pune",
+      "startArrivalTime": "10:30 PM",
+      "endArrivalTime": "2:50 AM",
+      "date": "2023-01-07",
+	  "slFare": "220",
+	  "twoACFare": "760",
+	  "threeACFare": "555"
+    },
+    {
+      "divSource": "Pune",
+      "divDest": "Mumbai",
+      "source": "Pune",
+      "destination": "Thane",
+      "startArrivalTime": "2:50 AM",
+      "endArrivalTime": "5:40 AM",
+      "date": "2023-01-07",
+	  "slFare": "175",
+	  "twoACFare": "760",
+	  "threeACFare": "555"
+    }
+  ],
+  "trainSchedule": [
+    {
+      "departureDate": "2023-08-01"
+    },
+    {
+      "departureDate": "2023-08-02"
+    },
+    {
+      "departureDate": "2023-08-03"
+    }
+  ]
+}

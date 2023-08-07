@@ -1,0 +1,96 @@
+<div class="container">
+  <h2>Booking Details</h2>
+
+  <div>
+    <h3>Train Details</h3>
+    <p>Train Number: {{ trainNo }}</p>
+    <p>Train Name: {{ trainName }}</p>
+    <p>Type: {{ getTypeLabel(type) }}</p>
+    <p>Available Tickets: {{ availableTickets }}</p>
+    <p>Departure Date: {{ departureDate | date }}</p>
+  </div>
+
+  <div>
+    <h3>Route</h3>
+    <p>Source: {{ source }}</p>
+    <p>Destination: {{ destination }}</p>
+  </div>
+
+  <div class="passenger-details">
+    <h3>Passenger Details</h3>
+    <ng-container *ngFor="let passenger of passengers; let i = index">
+      <div class="passenger-box">
+        <h4>Passenger {{ i + 1 }}</h4>
+        <div class="form-group">
+          <label for="name{{ i }}">Name:</label>
+          <input id="name{{ i }}" name="name" type="text" [(ngModel)]="passenger.name" required>
+        </div>
+        <div class="form-group">
+          <label for="age{{ i }}">Age:</label>
+          <input id="age{{ i }}" name="age" type="number" [(ngModel)]="passenger.age" required>
+        </div>
+        <div class="form-group">
+          <label for="gender{{ i }}">Gender:</label>
+          <select id="gender{{ i }}" name="gender" [(ngModel)]="passenger.gender" required>
+            <option value="">Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="preference{{ i }}">Seat Preference:</label>
+          <select id="preference{{ i }}" name="preference" [(ngModel)]="passenger.preference" required>
+            <option value="">Select Preference</option>
+            <ng-container *ngIf="type === 'avsl' || type === 'av3a'">
+              <option value="Upper">Upper</option>
+              <option value="Middle">Middle</option>
+              <option value="Lower">Lower</option>
+              <option value="SideUpper">Side Upper</option>
+              <option value="SideLower">Side Lower</option>
+              <option value="No">No</option>
+            </ng-container>
+            <ng-container *ngIf="type === 'av2a'">
+              <option value="Upper">Upper</option>
+              <option value="Lower">Lower</option>
+              <option value="SideUpper">Side Upper</option>
+              <option value="SideLower">Side Lower</option>
+              <option value="No">No</option>
+            </ng-container>
+          </select>
+        </div>
+        <button class="btn btn-danger" (click)="removePassenger(i)" *ngIf="i > 0">Remove Passenger</button>
+      </div>
+    </ng-container>
+    <button class="btn btn-primary" (click)="addPassenger()" *ngIf="passengers.length < maxPassengers">Add Passenger</button>
+  </div>
+  
+  <form [formGroup]="bookingForm">
+    <!-- Other form fields here -->
+  
+    <div class="contact-details">
+      <div class="form-group">
+        <label for="name1">Name:</label>
+        <input id="name1" name="name1" type="text" formControlName="name1" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="email">Your Email:</label>
+        <input id="email" name="email" type="email" formControlName="email">
+        <div *ngIf="bookingForm.get('email')?.hasError('email') && (bookingForm.get('email')?.dirty || bookingForm.get('email')?.touched)" class="text-danger">
+          Please enter a valid email address.
+        </div>
+      </div>
+      
+      <div class="form-group">
+        <label for="number">Mobile Number:</label>
+        <input id="number" name="number" type="number" formControlName="number">
+        <div *ngIf="bookingForm.get('number')?.hasError('pattern') && (bookingForm.get('number')?.dirty || bookingForm.get('number')?.touched)" class="text-danger">
+          Please enter a 10-digit mobile number.
+        </div>
+      </div>
+      
+    
+    <button class="btn btn-success" (click)="book()" [disabled]="bookingForm.invalid">Book</button>
+
+  
