@@ -20,6 +20,9 @@ export class AdminloginComponent {
   successmsg: string ="";
   errorflag: boolean = true;
 
+
+  
+
   name1: string = '';
   email1: string = '';
   password1: any = '';
